@@ -1,17 +1,24 @@
+import { debug } from 'console';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTotalSteps } from 'slices/gameSlice';
 import { start } from 'slices/gameSlice';
-import { ProgressGrid } from './ProgressBar.styles';
+import { ProgressGrid, ProgressItem } from './ProgressBar.styles';
 
 interface IProps {
-  readonly active: number;
+  readonly currentStep: number;
 }
 
-const ProgressBar: React.FC<IProps> = ({ active }) => {
+const ProgressBar: React.FC<IProps> = ({ currentStep }) => {
   const totalSteps = useSelector(selectTotalSteps);
 
-  return <ProgressGrid></ProgressGrid>;
+  return (
+    <ProgressGrid>
+      {[...Array(totalSteps)].map((x, i) => (
+        <ProgressItem active={currentStep < i + 1} key={i} />
+      ))}
+    </ProgressGrid>
+  );
 };
 
 export default ProgressBar;

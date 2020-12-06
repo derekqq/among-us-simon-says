@@ -3,6 +3,8 @@ interface IGameSliceState {
   totalSteps: number;
   currentStep: number;
   isWin: false;
+  randomArray: number[];
+  userArray: number[];
 }
 
 interface IState<T> {

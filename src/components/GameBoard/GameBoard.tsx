@@ -11,7 +11,6 @@ const Gameboard: React.FC = () => {
       <ResetButton />
       <Wrapper>
         <Screen></Screen>
-        <Screen></Screen>
       </Wrapper>
     </Container>
   );
