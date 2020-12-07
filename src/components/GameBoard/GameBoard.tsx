@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { start } from 'slices/gameSlice';
-import ResetButton from './ResetButton';
+import React from 'react';
+
+import ResetButton from './ResetButton/ResetButton';
 import { Container, Wrapper } from './GameBoard.styles';
-import { Screen, Keyboard } from './Box';
+import { Screen, Keyboard, Winner } from './Box';
 import useWin from 'hooks/useWin';
 
 const Gameboard: React.FC = () => {
@@ -13,7 +12,7 @@ const Gameboard: React.FC = () => {
       <ResetButton />
       <Wrapper>
         {isWin ? (
-          <h1>You are Win</h1>
+          <Winner />
         ) : (
           <>
             <Screen />

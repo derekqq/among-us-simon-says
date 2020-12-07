@@ -3,7 +3,6 @@ interface IGameSliceState {
   totalRounds: number;
   currentRound: number;
   lastSuccessRound: number;
-  isWin: false;
   isUserTurn: false;
   randomArray: number[];
   userArray: number[];

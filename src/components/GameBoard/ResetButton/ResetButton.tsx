@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Button } from './GameBoard.styles';
+import { Button } from './ResetButton.styles';
 import { reset } from 'slices/gameSlice';
 
 const ResetButton: React.FC = () => {

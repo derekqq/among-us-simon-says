@@ -1,8 +1,6 @@
-import { debug } from 'console';
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectTotalRounds } from 'slices/gameSlice';
-import { start } from 'slices/gameSlice';
 import { ProgressGrid, ProgressItem } from './ProgressBar.styles';
 
 interface IProps {

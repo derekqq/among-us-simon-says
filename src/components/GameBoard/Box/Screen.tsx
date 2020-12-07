@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { BoxContainer, ScreenGrid, ScreenItem } from './Box.styles';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import useAnimeScreen from 'hooks/useAnimeScreen';
@@ -8,7 +8,7 @@ const Screen: React.FC = () => {
 
   return (
     <BoxContainer>
-      <ProgressBar currentRound={currentRound}></ProgressBar>
+      <ProgressBar currentRound={currentRound} />
       <ScreenGrid ref={screenRef}>
         {[...Array(16)].map((x, i) => (
           <ScreenItem key={'screenItem' + i} active={true} />

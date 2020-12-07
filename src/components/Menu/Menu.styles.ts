@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Button = styled.div`
   width: 100%;
-  height: 123px;
-  font-size: 12.2rem;
-  line-height: 123px;
+  font-size: 11.2rem;
+  line-height: 10rem;
+  padding: 1rem;
   border: 5px solid #ffffff;
   border-radius: 5px;
   background: transparent;

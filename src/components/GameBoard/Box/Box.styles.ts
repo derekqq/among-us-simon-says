@@ -48,3 +48,15 @@ export const KeyboardItem = styled.div`
   width: 50px;
   height: 50px;
 `;
+
+export const WinnerWrapper = styled.div`
+  background: #000;
+  border: 3px solid #ffffff;
+  padding: 5rem;
+  margin-top: 2rem;
+`;
+
+export const WinnerHeader = styled.p`
+  font-size: 10rem;
+  font-weight: bold;
+`;
