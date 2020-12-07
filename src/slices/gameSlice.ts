@@ -10,6 +10,7 @@ const initialState: IGameSliceState = {
   randomArray: [],
   userArray: [],
   isFailed: false,
+  shouldChange: true,
 };
 
 const gameSlice = createSlice({
@@ -44,6 +45,8 @@ const gameSlice = createSlice({
       state.isUserTurn = false;
       state.userArray = [];
       state.isFailed = true;
+      state.shouldChange =
+        state.lastSuccessRound === state.currentRound ? !state.shouldChange : state.shouldChange;
     },
     resetFailed: (state) => {
       state.isFailed = false;
@@ -64,5 +67,6 @@ export const selectRandomArray = (state: IState<IGameSliceState>) => state.game.
 export const selectUserArray = (state: IState<IGameSliceState>) => state.game.userArray;
 
 export const selectIsFailed = (state: IState<IGameSliceState>) => state.game.isFailed;
+export const selectShouldChange = (state: IState<IGameSliceState>) => state.game.shouldChange;
 
 export default gameSlice.reducer;

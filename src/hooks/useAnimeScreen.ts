@@ -1,6 +1,11 @@
 import { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentRound, selectRandomArray, setTurn, selectIsFailed } from 'slices/gameSlice';
+import {
+  selectCurrentRound,
+  selectRandomArray,
+  setTurn,
+  selectShouldChange,
+} from 'slices/gameSlice';
 import { delay } from 'lodash';
 import { isUserTurn, hideItem, showItem } from 'helpers/animeScreen';
 
@@ -9,6 +14,7 @@ const useAnimeScreen = () => {
   const screenRef = useRef<HTMLDivElement | null>(null);
   const randomArray = useSelector(selectRandomArray);
   const currentRound = useSelector(selectCurrentRound);
+  const shouldChange = useSelector(selectShouldChange);
 
   useEffect(() => {
     if (screenRef.current === null) return;
@@ -27,7 +33,7 @@ const useAnimeScreen = () => {
       delay(() => hideItem(currItem), hideTime);
       return true;
     });
-  }, [currentRound]);
+  }, [currentRound, shouldChange]);
 
   return { currentRound, screenRef };
 };

@@ -7,6 +7,7 @@ interface IGameSliceState {
   randomArray: number[];
   userArray: number[];
   isFailed: boolean;
+  shouldChange: boolean;
 }
 
 interface IState<T> {
