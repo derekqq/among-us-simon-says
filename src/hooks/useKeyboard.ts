@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCurrentRound,
@@ -10,11 +10,7 @@ import {
   fail,
   selectIsUserTurn,
 } from 'slices/gameSlice';
-
-const validClick = (userArr: number[], randArr: number[]) =>
-  userArr.every((item, index) => {
-    return randArr.indexOf(item) === index;
-  });
+import { validClick } from 'helpers/validClick';
 
 const useKeyboard = () => {
   const dispatch = useDispatch();
@@ -24,12 +20,15 @@ const useKeyboard = () => {
   const currentRound = useSelector(selectCurrentRound);
 
   useEffect(() => {
+    console.log(userArray);
+    console.log(randomArray);
+    const isValid = validClick(userArray, randomArray);
+    isValid || dispatch(fail());
+
     dispatch(setTurn(true));
 
     if (userArray.length < currentRound) return;
-
-    const isValid = validClick(userArray, randomArray);
-    isValid ? dispatch(success()) : dispatch(fail());
+    isValid && dispatch(success());
   }, [userArray]);
 
   const handleClick = (i: number, e: unknown) => {
