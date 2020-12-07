@@ -17,7 +17,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-select": "^3.1.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -60,6 +61,7 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/react-select": "3.0.26",
     "@types/styled-components": "^5.1.4",
+    "@types/testing-library__react": "^10.2.0",
     "@types/webfontloader": "^1.6.32",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
@@ -81,8 +83,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
     "prettier": "^2.1.2",
-    "typescript": "^4.0.3",
-    "webfontloader": "^1.6.28"
+    "typescript": "^4.0.3"
   },
   "husky": {
     "hooks": {

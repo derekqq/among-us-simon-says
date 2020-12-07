@@ -9,6 +9,7 @@ const initialState: IGameSliceState = {
   isUserTurn: false,
   randomArray: [],
   userArray: [],
+  isFailed: false,
 };
 
 const gameSlice = createSlice({
@@ -42,11 +43,15 @@ const gameSlice = createSlice({
       state.currentRound = state.lastSuccessRound;
       state.isUserTurn = false;
       state.userArray = [];
+      state.isFailed = true;
+    },
+    resetFailed: (state) => {
+      state.isFailed = false;
     },
   },
 });
 
-export const { start, reset, setTurn, userClick, success, fail } = gameSlice.actions;
+export const { start, reset, setTurn, userClick, success, fail, resetFailed } = gameSlice.actions;
 
 export const selectIsUserTurn = (state: IState<IGameSliceState>) => state.game.isUserTurn;
 
@@ -57,5 +62,7 @@ export const selectTotalRounds = (state: IState<IGameSliceState>) => state.game.
 
 export const selectRandomArray = (state: IState<IGameSliceState>) => state.game.randomArray;
 export const selectUserArray = (state: IState<IGameSliceState>) => state.game.userArray;
+
+export const selectIsFailed = (state: IState<IGameSliceState>) => state.game.isFailed;
 
 export default gameSlice.reducer;

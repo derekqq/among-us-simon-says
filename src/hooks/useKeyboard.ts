@@ -4,13 +4,16 @@ import {
   selectCurrentRound,
   selectRandomArray,
   selectUserArray,
+  selectIsFailed,
   setTurn,
   userClick,
   success,
   fail,
+  resetFailed,
   selectIsUserTurn,
 } from 'slices/gameSlice';
 import { compareArray } from 'helpers/compareArray';
+import { delay } from 'lodash';
 
 const useKeyboard = () => {
   const dispatch = useDispatch();
@@ -18,6 +21,11 @@ const useKeyboard = () => {
   const randomArray = useSelector(selectRandomArray);
   const isUserTurn = useSelector(selectIsUserTurn);
   const currentRound = useSelector(selectCurrentRound);
+  const isFailed = useSelector(selectIsFailed);
+
+  useEffect(() => {
+    delay(() => dispatch(resetFailed()), 500);
+  }, [isFailed]);
 
   useEffect(() => {
     const isValid = compareArray(userArray, randomArray);
@@ -34,7 +42,7 @@ const useKeyboard = () => {
     dispatch(setTurn(false));
   };
 
-  return { currentRound, isUserTurn, handleClick };
+  return { currentRound, isUserTurn, handleClick, isFailed };
 };
 
 export default useKeyboard;

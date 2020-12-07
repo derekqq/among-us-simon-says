@@ -21,7 +21,7 @@ const Menu: React.FC = () => {
 
   return (
     <Container>
-      <Button onClick={handleSumbit}>START</Button>
+      <Button onClick={handleSumbit}>Start</Button>
       <CustomSelect onChange={handleChange} draft={selectedStep} count={10} />
     </Container>
   );

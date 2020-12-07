@@ -10,6 +10,7 @@ export const Button = styled.div`
   background: transparent;
   text-align: center;
   cursor: pointer;
+  text-transform: uppercase;
 `;
 
 export const Container = styled.div`

@@ -15,6 +15,7 @@ export const Logo = styled.img`
 export const Header = styled.h1`
   font-size: 7.2rem;
   margin-top: 1rem;
+  text-transform: uppercase;
 `;
 
 export const FigureGreen = styled.img`

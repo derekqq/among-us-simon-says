@@ -34,9 +34,10 @@ export const ScreenItem = styled.div<{ active: boolean | undefined }>`
   height: 50px;
 `;
 
-export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined }>`
+export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined; isFailed: boolean }>`
   pointer-events: ${(props) => (props.active ? 'auto' : 'none')};
-  background: transparent;
+  cursor: ${(props) => (props.active ? 'pointer' : 'not-allowed')};
+  background: ${(props) => (props.isFailed ? 'red' : 'transparent;')};
   gap: 5px 5px;
 `;
 
@@ -44,7 +45,7 @@ export const KeyboardItem = styled.div`
   background-image: radial-gradient(circle farthest-corner at 10% 20%, gray 0%, rgb(5, 5, 5) 82.8%);
   border: 1px solid black;
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
+
   width: 50px;
   height: 50px;
 `;

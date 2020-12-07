@@ -6,7 +6,7 @@ const Wrapper: React.FC = ({ children }) => {
   return (
     <Container>
       <Logo src={logo} />
-      <Header>SIMON SAYS</Header>
+      <Header>Simon Says</Header>
 
       {children}
     </Container>
