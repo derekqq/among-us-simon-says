@@ -25,9 +25,10 @@ const useKeyboard = () => {
 
   useEffect(() => {
     delay(() => dispatch(resetFailed()), 1500);
-  }, [isFailed, dispatch]);
+  }, [isFailed]);
 
   useEffect(() => {
+    if (userArray.length === 0) return;
     const isValid = compareArray(userArray, randomArray);
     isValid || dispatch(fail());
 
@@ -35,7 +36,7 @@ const useKeyboard = () => {
 
     if (userArray.length < currentRound) return;
     isValid && dispatch(success());
-  }, [dispatch, userArray, randomArray, currentRound]);
+  }, [userArray]);
 
   const handleClick = (i: number, e: unknown) => {
     dispatch(userClick(i));

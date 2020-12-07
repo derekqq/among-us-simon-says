@@ -34,13 +34,14 @@ export const ScreenItem = styled.div<{ active: boolean | undefined }>`
 `;
 
 export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined; isFailed: boolean }>`
-  pointer-events: ${(props) => (props.isFailed ? 'none' : 'auto')};
+  pointer-events: ${(props) => (props.active ? 'auto' : 'none')};
   cursor: ${(props) => (props.active ? 'pointer' : 'not-allowed')};
   background: transparent;
   gap: 5px 5px;
   position: relative;
   &:after {
     display: ${(props) => (props.isFailed ? 'block' : 'none')};
+    cursor: ${(props) => (props.isFailed ? 'not-allowed' : 'pointer')};
     content: '';
     position: absolute;
     background-color: rgba(255, 0, 0, 0.8);
