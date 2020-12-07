@@ -1,8 +1,10 @@
 interface IGameSliceState {
   isLaunched: boolean;
-  totalSteps: number;
-  currentStep: number;
+  totalRounds: number;
+  currentRound: number;
+  lastSuccessRound: number;
   isWin: false;
+  isUserTurn: false;
   randomArray: number[];
   userArray: number[];
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BoxContainer = styled.div`
-  max-width: 350px;
+  max-width: 300px;
   width: 100%;
   background: #a4a3a3;
   display: flex;
@@ -30,6 +30,21 @@ export const ScreenGrid = styled.div`
 
 export const ScreenItem = styled.div<{ active: boolean | undefined }>`
   background: #000;
+  width: 50px;
+  height: 50px;
+`;
+
+export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined }>`
+  pointer-events: ${(props) => (props.active ? 'auto' : 'none')};
+  background: transparent;
+  gap: 5px 5px;
+`;
+
+export const KeyboardItem = styled.div`
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, gray 0%, rgb(5, 5, 5) 82.8%);
+  border: 1px solid black;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
   width: 50px;
   height: 50px;
 `;

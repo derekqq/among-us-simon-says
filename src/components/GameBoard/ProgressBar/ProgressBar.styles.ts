@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const ProgressGrid = styled.div`
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 50px 50px;
-  gap: 5px 15px;
+  grid-template-rows: 35px 50px;
+  gap: 5px 12px;
   grid-template-areas:
     '. . . . .'
     '. . . . .';
