@@ -10,8 +10,8 @@ const Screen: React.FC = () => {
     <BoxContainer>
       <ProgressBar currentRound={currentRound} />
       <ScreenGrid ref={screenRef}>
-        {[...Array(16)].map((x, i) => (
-          <ScreenItem key={'screenItem' + i} active={true} />
+        {[...Array(16)].map((x, index) => (
+          <ScreenItem key={'screenItem' + index} />
         ))}
       </ScreenGrid>
     </BoxContainer>

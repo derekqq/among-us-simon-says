@@ -27,7 +27,7 @@ export const ScreenGrid = styled.div`
     '. . . . ';
 `;
 
-export const ScreenItem = styled.div<{ active: boolean | undefined }>`
+export const ScreenItem = styled.div`
   background: #000;
   width: 50px;
   height: 50px;
