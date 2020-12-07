@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
 export const BoxContainer = styled.div`
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
   background: #a4a3a3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
+  padding: 5px 10px 30px;
   box-shadow: 0px 0px 10px 14px rgba(0, 0, 0, 0.75);
   margin-top: 30px;
-  height: 350px;
+  @media (max-width: 800px) {
+    margin-top: 2px;
+    height: 320px;
+    box-shadow: 0px 0px;
+  }
 `;
 
 export const ScreenGrid = styled.div`

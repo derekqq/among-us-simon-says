@@ -32,7 +32,7 @@ export const StepsHeader = styled.label`
 
 export const Select = styled.select`
   display: block;
-  background: transparent;
+  background: #000;
   border: 3px solid #ffffff;
   width: 100%;
   height: 50px;
