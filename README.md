@@ -7,6 +7,8 @@ Project was bootstrapped with [Create React App](https://github.com/facebook/cre
 
 Check live demo at [https://derekqq.github.io/among-us-simon-says/](https://derekqq.github.io/among-us-simon-says/).
 
+![Screenshot](screenshot.png)
+
 #### App structure:
 
 - components (react components)
