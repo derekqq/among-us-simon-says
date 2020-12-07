@@ -40,7 +40,7 @@ const gameSlice = createSlice({
       state.userArray = [];
     },
     fail: (state) => {
-      state.currentRound = state.lastSuccessRound;
+      state.currentRound = state.lastSuccessRound === 1 ? 0 : state.lastSuccessRound;
       state.isUserTurn = false;
       state.userArray = [];
       state.isFailed = true;

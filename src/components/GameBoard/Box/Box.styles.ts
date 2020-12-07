@@ -11,7 +11,6 @@ export const BoxContainer = styled.div`
   box-shadow: 0px 0px 10px 14px rgba(0, 0, 0, 0.75);
   margin-top: 30px;
   height: 350px;
-  position: relative;
 `;
 
 export const ScreenGrid = styled.div`
@@ -39,12 +38,12 @@ export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined; is
   cursor: ${(props) => (props.active ? 'pointer' : 'not-allowed')};
   background: transparent;
   gap: 5px 5px;
-
+  position: relative;
   &:after {
     display: ${(props) => (props.isFailed ? 'block' : 'none')};
     content: '';
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.6);
+    background-color: rgba(255, 0, 0, 0.8);
     top: 0;
     left: 0;
     width: 100%;
@@ -53,7 +52,7 @@ export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined; is
   }
 `;
 
-export const KeyboardItem = styled.div`
+export const KeyboardItem = styled.div<{ isFailed: boolean }>`
   background-image: radial-gradient(circle farthest-corner at 10% 20%, gray 0%, rgb(5, 5, 5) 82.8%);
   border: 1px solid black;
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
@@ -63,8 +62,7 @@ export const KeyboardItem = styled.div`
   &:active,
   &:focus {
     transform: scale(1.1);
-    background: rgb(61, 0, 245);
-    background: radial-gradient(circle, rgba(61, 0, 245, 1) 0%, rgba(24, 23, 23, 1) 98%);
+    background: blue;
   }
 `;
 

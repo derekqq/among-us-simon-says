@@ -11,7 +11,11 @@ const Keyboard: React.FC = () => {
       <ProgressBar currentRound={currentRound - 1}></ProgressBar>
       <KeyboardGrid isFailed={isFailed} active={isUserTurn}>
         {[...Array(16)].map((x, i) => (
-          <KeyboardItem onClick={(e) => handleClick(i, e)} key={'screenItem' + i} />
+          <KeyboardItem
+            isFailed={isFailed}
+            onClick={(e) => handleClick(i, e)}
+            key={'screenItem' + i}
+          />
         ))}
       </KeyboardGrid>
     </BoxContainer>
