@@ -10,7 +10,7 @@ import {
   fail,
   selectIsUserTurn,
 } from 'slices/gameSlice';
-import { validClick } from 'helpers/validClick';
+import { compareArray } from 'helpers/compareArray';
 
 const useKeyboard = () => {
   const dispatch = useDispatch();
@@ -20,9 +20,7 @@ const useKeyboard = () => {
   const currentRound = useSelector(selectCurrentRound);
 
   useEffect(() => {
-    console.log(userArray);
-    console.log(randomArray);
-    const isValid = validClick(userArray, randomArray);
+    const isValid = compareArray(userArray, randomArray);
     isValid || dispatch(fail());
 
     dispatch(setTurn(true));
