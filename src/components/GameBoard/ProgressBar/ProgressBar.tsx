@@ -13,7 +13,7 @@ const ProgressBar: React.FC<IProps> = ({ currentRound }) => {
   return (
     <ProgressGrid>
       {[...Array(totalRounds)].map((x, index) => (
-        <ProgressItem active={currentRound < i + 1} key={'progressItem' + index} />
+        <ProgressItem active={currentRound < index + 1} key={'progressItem' + index} />
       ))}
     </ProgressGrid>
   );
