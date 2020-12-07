@@ -24,8 +24,8 @@ const useKeyboard = () => {
   const isFailed = useSelector(selectIsFailed);
 
   useEffect(() => {
-    delay(() => dispatch(resetFailed()), 500);
-  }, [isFailed]);
+    delay(() => dispatch(resetFailed()), 1500);
+  }, [isFailed, dispatch]);
 
   useEffect(() => {
     const isValid = compareArray(userArray, randomArray);
@@ -35,7 +35,7 @@ const useKeyboard = () => {
 
     if (userArray.length < currentRound) return;
     isValid && dispatch(success());
-  }, [userArray]);
+  }, [dispatch, userArray, randomArray, currentRound]);
 
   const handleClick = (i: number, e: unknown) => {
     dispatch(userClick(i));

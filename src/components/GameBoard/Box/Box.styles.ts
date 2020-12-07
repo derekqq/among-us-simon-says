@@ -10,8 +10,8 @@ export const BoxContainer = styled.div`
   padding: 5px;
   box-shadow: 0px 0px 10px 14px rgba(0, 0, 0, 0.75);
   margin-top: 30px;
-
   height: 350px;
+  position: relative;
 `;
 
 export const ScreenGrid = styled.div`
@@ -35,10 +35,22 @@ export const ScreenItem = styled.div<{ active: boolean | undefined }>`
 `;
 
 export const KeyboardGrid = styled(ScreenGrid)<{ active: boolean | undefined; isFailed: boolean }>`
-  pointer-events: ${(props) => (props.active ? 'auto' : 'none')};
+  pointer-events: ${(props) => (props.isFailed ? 'none' : 'auto')};
   cursor: ${(props) => (props.active ? 'pointer' : 'not-allowed')};
-  background: ${(props) => (props.isFailed ? 'red' : 'transparent;')};
+  background: transparent;
   gap: 5px 5px;
+
+  &:after {
+    display: ${(props) => (props.isFailed ? 'block' : 'none')};
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
 `;
 
 export const KeyboardItem = styled.div`
@@ -48,6 +60,12 @@ export const KeyboardItem = styled.div`
 
   width: 50px;
   height: 50px;
+  &:active,
+  &:focus {
+    transform: scale(1.1);
+    background: rgb(61, 0, 245);
+    background: radial-gradient(circle, rgba(61, 0, 245, 1) 0%, rgba(24, 23, 23, 1) 98%);
+  }
 `;
 
 export const WinnerWrapper = styled.div`
@@ -60,4 +78,5 @@ export const WinnerWrapper = styled.div`
 export const WinnerHeader = styled.p`
   font-size: 10rem;
   font-weight: bold;
+  text-align: center;
 `;
