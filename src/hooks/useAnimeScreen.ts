@@ -5,9 +5,10 @@ import {
   selectRandomArray,
   setTurn,
   selectShouldChange,
+  selectTotalRounds,
 } from 'slices/gameSlice';
 import { delay } from 'lodash';
-import { isUserTurn, hideItem, showItem } from 'helpers/animeScreen';
+import { checkTurn, hideItem, showItem } from 'helpers/animeScreen';
 
 const useAnimeScreen = () => {
   const dispatch = useDispatch();
@@ -15,16 +16,23 @@ const useAnimeScreen = () => {
   const randomArray = useSelector(selectRandomArray);
   const currentRound = useSelector(selectCurrentRound);
   const shouldChange = useSelector(selectShouldChange);
+  const totalRounds = useSelector(selectTotalRounds);
 
   useEffect(() => {
     if (screenRef.current === null) return;
+
+    if (totalRounds === currentRound) {
+      delay(() => dispatch(setTurn(true)), currentRound * 1000 + 1000);
+    }
 
     randomArray.every((item, index) => {
       //@ts-ignore
       const currItem: HTMLDivElement = screenRef.current.children[item];
       const delayTime = (index + 1) * 1000 + 500;
       const hideTime = delayTime + 500;
-      if (isUserTurn(currentRound, index)) {
+      const isUserTurn = checkTurn(currentRound, index);
+
+      if (isUserTurn) {
         delay(() => dispatch(setTurn(true)), delayTime);
         return false;
       }

@@ -1,5 +1,5 @@
-export const isUserTurn = (currRound: number, currKey: number): boolean => {
-  return !(currKey < currRound);
+export const checkTurn = (currRound: number, currKey: number): boolean => {
+  return currRound <= currKey;
 };
 
 export const hideItem = (element: HTMLDivElement): void => {
