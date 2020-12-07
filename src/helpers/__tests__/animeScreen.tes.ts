@@ -1,6 +1,6 @@
 import { isUserTurn } from 'helpers/animeScreen';
 
-describe('animeScreen', () => {
+describe('is user turn', () => {
   it('return true, when current key is higher than current round', () => {
     const currentRound = 5;
     const currentKey = 6;
